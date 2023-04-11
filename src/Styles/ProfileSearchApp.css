@@ -1,0 +1,41 @@
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(213, 75, 141, 1) 0%,
+    rgba(255, 98, 116, 1) 31%,
+    rgba(255, 209, 103, 1) 100%
+  );
+  min-height: 100vh;
+}
+.searchContainer {
+  margin: 85px 300px;
+}
+
+#message {
+  background-color: white;
+  width: 99%;
+  height: 40px;
+  border: none;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 3px;
+  outline: none;
+}
+#message:placeholder-shown {
+  font-style: italic;
+}
+
+.profileContainer {
+  padding: 10px;
+  display: flex;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background-color: white;
+  gap: 10px;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 15px;
+}
