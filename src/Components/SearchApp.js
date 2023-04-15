@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { userProfiles } from "../Data/users";
+import "../Styles/SearchApp.css";
+import SearchBar from "./SearchBar";
+import Picture from "./Picture";
+import UserInfo from "./UserInfo";
 
 export default function SearchApp() {
   const [searchInput, setSearchInput] = useState("");
-
+  const fullName = `{user.title} {user.firstName} {user.lastName}`;
   return (
     <div>
       <div className="searchContainer">
-        <input
-          type="text"
-          id="message"
-          name="message"
-          placeholder="Search by name..."
-          value={searchInput}
-          onChange={(event) => setSearchInput(event.target.value)}
+        <SearchBar
+          text={searchInput}
+          eventTitle={(event) => setSearchInput(event.target.value)}
         />
         <div className="container">
           {userProfiles
@@ -32,15 +32,23 @@ export default function SearchApp() {
             )
             .map((user, index) => (
               <div key={user.id} className="profileContainer">
-                <div className="picture">
-                  <img src={user.picture} />
-                </div>
-                <div className="userInfo" style={{ fontSize: "12px" }}>
-                  <div style={{ fontWeight: "400", color: "#848A93" }}>
-                    {user.id}
+                <Picture picUrl={user.picture} />
+                <div className="userInfo" style={{ fontSize: "13px" }}>
+                  <div style={{ fontWeight: "500", color: "#848A93" }}>
+                    <UserInfo id={user.id} className="userId" />
                   </div>
-                  <div style={{ fontWeight: "600", color: "#848A93" }}>
-                    {user.title} {user.firstName} {user.lastName}
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      color: "#626976",
+                      lineHeight: "1.5rem",
+                    }}
+                  >
+                    <UserInfo
+                      title={`${user.title}.`}
+                      fName={user.firstName}
+                      lName={user.lastName}
+                    />
                   </div>
                 </div>
               </div>

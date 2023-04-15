@@ -39,3 +39,6 @@ body {
   grid-template-rows: 1fr 1fr;
   column-gap: 15px;
 }
+.userId {
+  border: 2px solid red;
+}
